@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes.js'
 import {notFound, errorHandler} from './Middleware/errormiddleware.js'
 
 
+
 import connectDB from './config/config.js';
 
 
@@ -13,6 +14,9 @@ const port =  process.env.PORT || 5000;
 connectDB();
 
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies (with the help of querystring)
 
 app.use('/api/users', userRoutes )
 
