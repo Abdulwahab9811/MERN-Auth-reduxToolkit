@@ -29,10 +29,19 @@ const RegisterUser = asyncHandler (async(req,res) => {
         email,
         password,
     });
-    
 
-   
-    res.status(200).json({message:'Register profile' });
+    if (user) {
+        res.status(201).json({
+         _id: user._id,
+         name: user.name,
+         email: user.email
+        });
+
+    }else {
+        res.status(400)
+        throw new Error('Invalid user data')
+    }
+
 
 });
 
