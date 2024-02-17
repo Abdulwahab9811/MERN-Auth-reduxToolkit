@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 import userRoutes from './routes/userRoutes.js'
 import {notFound, errorHandler} from './Middleware/errormiddleware.js'
+import cookieParser from 'cookie-parser';
 
 
 
@@ -15,8 +16,11 @@ connectDB();
 
 const app = express();
 
+
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); //Parse URL-encoded bodies (with the help of querystring)
+app.use(express.urlencoded({ extended: true })); 
+app.use(cookieParser());
 
 app.use('/api/users', userRoutes )
 
