@@ -7,7 +7,8 @@
   "scripts": {
     "test": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm run dev --prefix frontend"
+    "client": "npm run dev --prefix frontend/vite-project",
+    "dev" : "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "mongoose": "^8.1.1"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "nodemon": "^3.0.3"
   }
 }
