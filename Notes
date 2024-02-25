@@ -1,0 +1,21 @@
+_ROUTE CONFIGURATION_
+first thing first. i have seperated a components folder for handling routes anda screnns folder to hanlde what exaccty goes in the UI of each componenet.
+
+//===============================================
+// _ROUTE CONFIGURATION_
+In the main.jsx i have used `createRouterBrowser` function to create routes. The `createroutesElements` function after that is used to create routes based on React Elements. its taking JSX elements to defining routes.
+
+Inside `createRoutesFromElements`, there are two <Route> components defined:
+The first <Route> is for the root path /, and it renders the App component.
+Inside this first <Route>, there are two nested <Route> components:
+One for the index page, with path='/' and HomeScreens component.
+Another for the /login path, rendering the Loginscreen component.
+Router Initialization: After setting up the router and routes, it initializes the router using createBrowserRouter and createRoutesFromElements.
+
+Rendering: It then renders the root component <RouterProvider> provided by react-router-dom to ensure routing functionality is available throughout the app.
+
+Strict Mode: The entire application is wrapped in React.StrictMode, which is a tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants.
+
+DOM Rendering: Finally, it renders the root component onto the DOM using ReactDOM.createRoot().
+
+So thats does it for the Main.jsx for.Changes will be applied after application progesses.
