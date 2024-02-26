@@ -32,3 +32,27 @@ I used `<h1>` tag for heading and `<p>` tag for paragraphs.
 `LinkContainer` from react boostrap library is being used to add linkpages for register and login. Ofcourse we will have to make the links work from adding them in our main.jsx for route configuration
 
 `<LinkContainer to='/login'>` is linked to the Loginscreens.jsx inside the screens folder. To add the proper link i added `<Route path='/login' element={<Loginscreen />} />` to the `main.jsx`. Thats does it for the `Hero.jsx file` More to come..
+
+_FORMCONTAINER/COMPONENET_
+
+Now before i move on to `Loginscreen.jsx` its very important that i explain what is happeining in the
+
+`FormContainer.jsx` componenet.
+`FormContainer` is a functional component declared using ES6 arrow function syntax.It accepts a single prop `children`, which represents the child components passed to it.
+
+`FormContainer` component is a layout component that wraps its children within a Bootstrap container, row, and column structure, providing styling and layout for form elements. It follows a responsive design approach with Bootstrap's grid system. Now let's move on to the LoginScreen.jsx.
+
+_LOGINSCREENS.JSX/COMPONENT_
+
+`Loginscreen` is a functional component declared using ES6 arrow function syntax.
+It initializes two `state` variables `email and password` using the `useState` hook to manage form inputs.
+It defines a {`submitHandler`} function to handle form submission. Currently, it just logs "submit" to the console.
+Component Structure:
+
+The component returns JSX, representing the login form.
+It uses the FormContainer component to wrap the form for styling and layout.
+Inside the form container, it includes a heading <h1> with the text "Sign in".
+It uses the <Form> component from react-bootstrap to create the form. The `onSubmit` event is handled by the {`submitHandler`} function.
+Inside the form, there are two `form groups` for email and password inputs, each containing a <Form.Label> and <Form.Control>.
+It includes a <Button> component for submitting the form with the text "Sign in".
+It also includes a <Row> and <Col> for displaying a link to the `registration page`.
