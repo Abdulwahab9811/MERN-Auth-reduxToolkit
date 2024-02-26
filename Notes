@@ -19,3 +19,16 @@ Strict Mode: The entire application is wrapped in React.StrictMode, which is a t
 DOM Rendering: Finally, it renders the root component onto the DOM using ReactDOM.createRoot().
 
 So thats does it for the Main.jsx for.Changes will be applied after application progesses.
+
+The `Homescreens`.jsx is simply used to render the `Herojsx` componennt that is is placed inside the components folder
+
+_HERO.JSX/COMPONENT_
+
+In this file i am rendering the main page where the application starts on localhost3000.
+i am using simple react elements like `Container` that wraps thr whole div inside the componenet.
+Using Card from bootstrap to create a card-like structure around my content.
+I used `<h1>` tag for heading and `<p>` tag for paragraphs.
+
+`LinkContainer` from react boostrap library is being used to add linkpages for register and login. Ofcourse we will have to make the links work from adding them in our main.jsx for route configuration
+
+`<LinkContainer to='/login'>` is linked to the Loginscreens.jsx inside the screens folder. To add the proper link i added `<Route path='/login' element={<Loginscreen />} />` to the `main.jsx`. Thats does it for the `Hero.jsx file` More to come..
