@@ -5,24 +5,41 @@ import FormContainer from '../components/FormContainer';
 
 import React from 'react'
 
-const Loginscreen = () => {
+const Registerscreen = () => {
 
     const [email, setEmail] = useState('');
-    const [password,SetPassword] = useState('');
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword,SetConfirmPassword] = useState('');
 
     const sumbitHandler = async (e) => {
         e.preventDefault();
         console.log('sumbit');
 
     }
-
+    
     
   return (
     <FormContainer>
-        <h1>Sign in</h1>
+        <h1>Sign up</h1>
+
         <Form onSumbit={sumbitHandler}>
+
+        <Form.Group className='my-2' controleId='name'>
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                value={email}
+                onChange={(e)=> setName(e.target.value) }>
+
+                </Form.Control>
+            </Form.Group>
+
+
+
             <Form.Group className='my-2' controleId='email'>
-                <Form.Label>Email Adresse</Form.Label>
+                <Form.Label> Email Adresse </Form.Label>
                 <Form.Control
                 type="email"
                 placeholder="email"
@@ -38,18 +55,29 @@ const Loginscreen = () => {
                 type="password"
                 placeholder="Enter Password"
                 value={password}
-                onChange={(e)=> SetPassword(e.target.value) }>
+                onChange={(e)=> setPassword(e.target.value) }>
+
+                </Form.Control>
+            </Form.Group>
+
+            <Form.Group className='my-2' controleId='confirmPassword'>
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPassword}
+                onChange={(e)=> SetConfirmPassword(e.target.value) }>
 
                 </Form.Control>
             </Form.Group>
 
             <Button type = 'Sumbit' variant='primary' className="mt-3">
-                Sign in
+                Sign Up
             </Button>
 
             <Row className="py-3">
                 <Col>
-                New Constumer? <Link to= '/register'>Register</Link>
+                Already have a acount? <Link to= '/login'>Login</Link>
                 </Col>
             </Row>
         </Form>
@@ -58,4 +86,4 @@ const Loginscreen = () => {
 }
 
 
-export default Loginscreen
+export default Registerscreen
