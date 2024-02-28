@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import store from './store.js';
+import { Provider } from 'react-redux';
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -12,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeScreens from '../src/screens/HomeScreens.jsx';
 import Loginscreen from '../src/screens/Loginscreen.jsx';
 import Registerscreen from '../src/screens/RegisterScreens.jsx';
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,7 +29,11 @@ const router = createBrowserRouter(
 );
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <Provider store={store}>
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
+  </Provider>
 );
+
+
