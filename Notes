@@ -20,7 +20,9 @@ DOM Rendering: Finally, it renders the root component onto the DOM using ReactDO
 
 So thats does it for the Main.jsx for.Changes will be applied after application progesses.
 
-The `Homescreens`.jsx is simply used to render the `Herojsx` componennt that is is placed inside the components folder
+The `Homescreens.jsx` is simply used to render the `Herojsx` componennt that is is placed inside the components folder
+
+After Creating `Loginsscreen` & `RegisterScreen`i have added their routes and imports to the `main.jsx `file for route configuration.
 
 _HERO.JSX/COMPONENT_
 
@@ -42,7 +44,7 @@ Now before i move on to `Loginscreen.jsx` its very important that i explain what
 
 `FormContainer` component is a layout component that wraps its children within a Bootstrap container, row, and column structure, providing styling and layout for form elements. It follows a responsive design approach with Bootstrap's grid system. Now let's move on to the LoginScreen.jsx.
 
-_LOGINSCREENS.JSX/COMPONENT_
+_LOGINSCREEN.JSX/COMPONENT_
 
 `Loginscreen` is a functional component declared using ES6 arrow function syntax.
 It initializes two `state` variables `email and password` using the `useState` hook to manage form inputs.
@@ -56,3 +58,14 @@ It uses the <Form> component from react-bootstrap to create the form. The `onSub
 Inside the form, there are two `form groups` for email and password inputs, each containing a <Form.Label> and <Form.Control>.
 It includes a <Button> component for submitting the form with the text "Sign in".
 It also includes a <Row> and <Col> for displaying a link to the `registration page`.
+
+_REGISTERSCREEN.JSX/COMPONENT_
+
+`Registerscreen.jsx` is very similar to the `Loginscreen.jsx` but has some differences.
+
+I have added 2 new `useState('')`.  
+`[confirmepassword ,Setpassword]`
+`[name,SetName]`
+
+these 2 states are used inside the `Form.Group` to create similar `Form.Control` as in `Loginscreen`. Using the states inside form for the confirmation of the password and adding a Name These are used to handle the name input field.
+Finally the <Link> inside the <Row> is change to Login if the user already has a existing account.
