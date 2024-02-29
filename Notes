@@ -69,3 +69,33 @@ I have added 2 new `useState('')`.
 
 these 2 states are used inside the `Form.Group` to create similar `Form.Control` as in `Loginscreen`. Using the states inside form for the confirmation of the password and adding a Name These are used to handle the name input field.
 Finally the <Link> inside the <Row> is change to Login if the user already has a existing account.
+
+store.js:
+
+Import Statements:
+
+configureStore is imported from @reduxjs/toolkit. This function is used to create a Redux store.
+authReducer is imported from the file path ./slices/authSlices. This is a reducer function created using createSlice from Redux Toolkit.
+Store Configuration:
+
+configureStore is called with an object argument containing:
+reducer: An object where keys represent slice names and values represent the reducer functions for those slices. In this case, there's only one slice named 'auth', and its reducer is authReducer.
+middleware: A function that allows you to customize the middleware used by the store. In this case, it's using getDefaultMiddleware, which returns an array of default middleware provided by Redux Toolkit.
+devTools: A boolean flag indicating whether Redux DevTools Extension should be enabled for this store. It's set to true, so the DevTools will be enabled.
+Export Statement:
+
+The store created by configureStore is exported as the default export of this module.
+slices/authSlices.js:
+
+Import Statements:
+
+createSlice is imported from @reduxjs/toolkit. This function is used to create a slice of state with reducers.
+Initial State:
+
+initialState defines the initial state of the slice. It contains a userInfo field, which is populated by parsing JSON stored in localStorage. If there's no data in localStorage, userInfo is set to null.
+Slice Creation:
+
+createSlice is called with an object argument containing:
+name: The name of the slice, which is 'auth'.
+initialState: The initial state of the slice.
+reducers: An object containing reducer functions. In this case, there are two reducers: setCredentials and logout
