@@ -28,7 +28,15 @@ const Loginscreen = () => {
 
     const sumbitHandler = async (e) => {
         e.preventDefault();
-        console.log('sumbit');
+        try {
+            const res = await login({email,password}).unwrap();
+            dispatch(setCredentials({...res}))
+            navigate('/')
+            
+        } catch (err) {
+            console.log(err?.data.message ||err.error);
+            
+        }
 
     }
 
