@@ -1,7 +1,10 @@
-import { useState } from "react";
-import { Link, } from 'react-router-dom';
+import { useState,useEffect } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col} from 'react-bootstrap';
+import { useDispatch,useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
+import { useLoginMutation} from '../slices/usersApiSlice'
+import { setCredentials } from "../slices/authSlices";
 
 import React from 'react'
 
@@ -9,6 +12,19 @@ const Loginscreen = () => {
 
     const [email, setEmail] = useState('');
     const [password,SetPassword] = useState('');
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const [login, {isLoading}] = useLoginMutation();
+
+    const {userInfo} = useSelector((state) => state.auth);
+
+    useEffect(() => {
+        if (userInfo) {
+            navigate('/');
+        }
+    },[navigate,userInfo])
 
     const sumbitHandler = async (e) => {
         e.preventDefault();
