@@ -35,6 +35,7 @@ const LoginScreen = () => {
       }
     };
   
+  
     return (
       <FormContainer>
         <h1>Sign In</h1>
@@ -59,6 +60,8 @@ const LoginScreen = () => {
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
+          {isLoading && <h2>Loading...</h2>}
   
           <Button
             disabled={isLoading}
