@@ -1,10 +1,10 @@
 import { useState , useEffect } from "react";
-import { Link,  useLocation , useNavigate} from 'react-router-dom';
+import { Link,useNavigate} from 'react-router-dom';
 import { Form, Button, Row, Col} from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRegisterMutation } from '../slices/usersApiSlice';
-import { setCredentials } from '../slices/authSlice';
+import { setCredentials } from '../slices/authSlices';
 import { toast } from 'react-toastify';
 
 import React from 'react'
@@ -21,6 +21,7 @@ const Registerscreen = () => {
     const navigate = useNavigate();
 
     const [register, { isLoading }] = useRegisterMutation();
+
     const { userInfo } = useSelector((state) => state.auth);
 
    useEffect(() => {
@@ -53,9 +54,9 @@ const Registerscreen = () => {
     <FormContainer>
         <h1>Sign up</h1>
 
-        <Form onSumbit={sumbitHandler}>
+        <Form onSubmit={submitHandler}>
 
-        <Form.Group className='my-2' controleId='name'>
+        <Form.Group className='my-2' controlId='name'>
                 <Form.Label>Name</Form.Label>
                 <Form.Control
                 type="text"
@@ -68,7 +69,7 @@ const Registerscreen = () => {
 
 
 
-            <Form.Group className='my-2' controleId='email'>
+            <Form.Group className='my-2' controlId='email'>
                 <Form.Label> Email Adresse </Form.Label>
                 <Form.Control
                 type="email"
@@ -79,7 +80,7 @@ const Registerscreen = () => {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group className='my-2' controleId='password'>
+            <Form.Group className='my-2' controlId='password'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                 type="password"
@@ -90,7 +91,7 @@ const Registerscreen = () => {
                 </Form.Control>
             </Form.Group>
 
-            <Form.Group className='my-2' controleId='confirmPassword'>
+            <Form.Group className='my-2' controlId='confirmPassword'>
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
                 type="password"
@@ -101,9 +102,13 @@ const Registerscreen = () => {
                 </Form.Control>
             </Form.Group>
 
+            {isLoading && <Loader />}
+
             <Button type = 'Sumbit' variant='primary' className="mt-3">
                 Sign Up
             </Button>
+
+            
 
             <Row className="py-3">
                 <Col>
