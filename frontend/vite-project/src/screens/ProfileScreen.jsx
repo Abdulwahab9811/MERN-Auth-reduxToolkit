@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import { useUpdateUserMutation } from '../slices/usersApiSlice';
-import { setCredentials } from '../slices/authSlice';
+import { setCredentials } from '../slices/authSlices';
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 
@@ -29,9 +29,24 @@ const ProfileScreen = () => {
     }, [userInfo.email, userInfo.name]);
   
     const submitHandler = async (e) => {
-      e.preventDefault();
-      console.log('submit');
-    };
+        e.preventDefault();
+        if (password !== confirmPassword) {
+          toast.error('Passwords do not match');
+        } else {
+          try {
+            const res = await updateProfile({
+              _id: userInfo._id,
+              name,
+              email,
+              password,
+            }).unwrap();
+            dispatch(setCredentials({ ...res }));
+            toast.success('Profile updated successfully');
+          } catch (err) {
+            toast.error(err?.data?.message || err.error);
+          }
+        }
+      };
   
     return (
       <FormContainer>
