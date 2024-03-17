@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
@@ -16,7 +15,8 @@ const ProfileScreen = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const dipsatch = useDispatch()
+    const dispatch = useDispatch();
+    
 
     const [updateProfile,  {isLoading}] = useUpdateUserMutation();
 

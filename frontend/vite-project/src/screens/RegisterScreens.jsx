@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRegisterMutation } from '../slices/usersApiSlice';
 import { setCredentials } from '../slices/authSlices';
 import { toast } from 'react-toastify';
+import Loader from '../components/Loader';
 
 import React from 'react'
 
